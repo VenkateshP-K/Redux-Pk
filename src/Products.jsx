@@ -9,6 +9,7 @@ function Products() {
     function handleRemoveProduct(index) {
         dispatch(removeProduct(index))
     }
+    
     return (
         <>
             <div className='container mt-5'>

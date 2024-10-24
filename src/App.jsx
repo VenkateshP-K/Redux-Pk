@@ -1,15 +1,23 @@
 import React from 'react'
-import Cart from './Cart'
 import 'bootstrap/dist/css/bootstrap.css'
 import { Provider } from 'react-redux'
 import { store } from './Slices/store'
-import Products from './Products'
+import Home from './Home'
+import AddProducts from './AddProducts' 
+import Cart from './Cart'
+import { BrowserRouter, Route , Routes} from 'react-router-dom'
 
 function App() {
   return (
+    <BrowserRouter>
     <Provider store={store}>
-    <Cart/>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/AddProducts' element={<AddProducts/>}/>
+        <Route path='/Cart' element={<Cart/>}/>
+      </Routes>
     </Provider>
+    </BrowserRouter>
   )
 }
 

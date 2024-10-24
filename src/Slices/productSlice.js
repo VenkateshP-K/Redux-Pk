@@ -13,6 +13,9 @@ const productSlice = createSlice({
         removeProduct (state, action) {
             const removeIndex = action.payload
             return state.filter((value, index) => index !== removeIndex)
+        },
+        addProductToCart(state, action) {
+            state.push(action.payload)
         }
     }
 })
