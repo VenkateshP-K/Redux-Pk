@@ -6,17 +6,19 @@ import Products from './Products';
 function AddProducts() {
     const [name, setName] = useState('');
     const [price, setPrice] = useState(0);
+    const [description, setDescription] = useState('');
     const dispatch = useDispatch();
 
     function addProduct(e) {
         e.preventDefault();  // Prevent the default form submission
-        const product = { name, price };
+        const product = { name, description,price };
 
-        if (!name || !price) {
-            alert('Please enter name and price');
+        if (!name || !price || !description) {
+            alert('Please enter valid details');
         } else {
             dispatch(addProductAction(product));
             setName('');  // Reset form fields
+            setDescription('');
             setPrice('');
         }
     }
@@ -38,6 +40,15 @@ function AddProducts() {
                                         className="form-control"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
+                                    />
+                                </div>
+                                <div>
+                                    <label className="form-label">Product description</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        value={description}
+                                        onChange={(e) => setDescription(e.target.value)}
                                     />
                                 </div>
                                 <div className="mb-3">

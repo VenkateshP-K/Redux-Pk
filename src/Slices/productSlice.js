@@ -8,17 +8,17 @@ const productSlice = createSlice({
     initialState,
     reducers: {
         addProduct(state, action) {
-            state.push(action.payload)
+            state.push(action.payload);
+            localStorage.setItem('products', JSON.stringify(state))
         },
         removeProduct (state, action) {
             const removeIndex = action.payload
-            return state.filter((value, index) => index !== removeIndex)
-        },
-        addProductToCart(state, action) {
-            state.push(action.payload)
+            const newState = state.filter((value, index) => index !== removeIndex)
+            localStorage.setItem('products', JSON.stringify(newState))
+            return newState;
         }
     }
 })
 
-export const { addProduct, removeProduct } = productSlice.actions;
+export const { addProduct, removeProduct, addToCart, removeFromCart } = productSlice.actions;
 export default productSlice.reducer

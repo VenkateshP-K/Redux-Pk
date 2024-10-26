@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function Home() {
     return (
         <>
-            <nav className="navbar bg-primary">
+            <nav className="navbar bg-body-border">
                 <div className="container-fluid">
                     <a className="navbar-brand">PK</a>
                     <form className="d-flex">
